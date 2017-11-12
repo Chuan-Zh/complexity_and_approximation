@@ -15,8 +15,13 @@ class CNF():
         assert(len(ass) == self.n_literal)
         self.assign = ass
 
-    def satisfy(self):
-        ass = self.assign
+    def satisfy(self, assign=None):
+        if(assign):
+            ass = assign
+        else:
+            ass = self.assign
+
+        assert(len(ass)==self.n_literal)
 
         for clause in self.formula:
             cv = False
